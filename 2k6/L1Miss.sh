@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ################################################################################
-# This script run all SPEC CP2006 benchmarks with their reference inputs and
-# measure them L1 Cache Misses.
+# This script runs all SPEC CP2006 benchmarks with their reference inputs and
+# measures their L1 Cache Misses with all the hardware prefetchers disabled.
 #
 # You need the perf-tools package. This program is prepared to run on an Intel
 # Xeon Skylake-SP Gold 5120. If you have a different processor it is highly 
 # likely that you have to modify the hardware events counters.
 #
-# BE CAREFUL: This program reset Hardware Prefetching.
+# BE CAREFUL: This program modifies the hardware prefetching configuration.
 #
 # @Author: agusnt@unizar.es (http://webdiis.unizar.es/~/agusnt)
 ################################################################################
@@ -17,10 +17,10 @@
 # Global variables, change them according to your workstation
 ################################################################################
 SOURCE=$(pwd) # Actual folder of execution
-BIN="$SOURCE/bin" # Integer benchmarks
-RES="$SOURCE/result/2k6" # Where save the result?
-REP=1 # Number of repeat the measures
-CORE=0 # Core to pinned the application
+BIN="$SOURCE/bin" # benchmarks binaries
+RES="$SOURCE/result/2k6" # results directory
+REP=1 # number of measurement repetitions
+CORE=0 # core to pin the application
 
 ################################################################################
 # Benchmarks and inputs declarations
@@ -102,6 +102,8 @@ INP=(
 ################################################################################
 # Below here is the actual body (and brain) of the shell script
 ################################################################################
+
+# Disable all hardware prefetchers
 wrmsr -p $CORE 0x1a4 0xf > /dev/null 2>&1
 
 # Iterate over the benchmarks and run it
@@ -129,5 +131,5 @@ do
     cd $SOURCE
 done
 
-# Enable hardware Prefetching
-wrmsr -p $CORE 0x1a4 0xf > /dev/null 2>&1
+# Enable all hardware prefetchers
+wrmsr -p $CORE 0x1a4 0 > /dev/null 2>&1

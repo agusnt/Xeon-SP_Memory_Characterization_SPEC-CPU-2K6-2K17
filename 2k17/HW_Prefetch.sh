@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ################################################################################
-# This script run all SPEC CP2017 benchmarks with their reference inputs and
-# get eight metrics about their execution with different hardware prefetching
-# configuration.
+# This script runs all SPEC CP2017 benchmarks with their reference inputs and
+# gets six metrics about their execution with different hardware prefetching
+# configurations.
 #  
-# The eight metrics are:
+# The six metrics are:
 # - LLC-load-misses
 # - LLC-load
 # - LLC-store-misses
@@ -16,20 +16,19 @@
 # You need the msr-tools package. This program is prepared to run on an Intel
 # processor.
 #
-# BE CAREFUL: This program reset Hardware Prefetching.
+# BE CAREFUL: This program modifies the hardware prefetching configuration.
 #
 # @Author: agusnt@unizar.es (http://webdiis.unizar.es/~/agusnt)
 ################################################################################
-
 
 ################################################################################
 # Global variables, change them according to your workstation
 ################################################################################
 SOURCE=$(pwd) # Actual folder of execution
-BIN="$SOURCE/bin" # Integer benchmarks
+BIN="$SOURCE/bin" # benchmarks binaries
 RES="$SOURCE/result/2k17" # Where save the result?
-REP=1 # Number of repeat the proofs
-CORE=0 # Core to pinned the application
+REP=1 # Number of measurement repetitions
+CORE=0 # Core to pin the application
 
 
 ################################################################################
@@ -143,25 +142,24 @@ do
         out="$RES/$i/Prefetch"
         mkdir -p $out
 
-        # Write MSR register to enable/disable the hardware prefetchers
+        # Write MSR register to change the hardware prefetchers configuration
         # This must be run as administrator (you need msr-tools package)
         wrmsr -p $CORE 0x1a4 $j > /dev/null 2>&1
 
         # Prefetch
         if [ -z ${INP[$i]} ]; then
             perf stat -r $REP --field-separator=, -e LLC-load -e LLC-load-misses -e cycles -e instructions -o $out/${PRENAME[$j]}.load.txt -- taskset -c $CORE ${BENCH[$i]} > /dev/null 2>&1 
-
             perf stat -r $REP --field-separator=, -e LLC-store -e LLC-store-misses -e cycles -e instructions -o $out/${PRENAME[$j]}.store.txt -- taskset -c $CORE ${BENCH[$i]} > /dev/null 2>&1 
         else        
             perf stat -r $REP --field-separator=, -e LLC-load -e LLC-load-misses -e cycles -e instructions -o $out/${PRENAME[$j]}.load.txt -- taskset -c $CORE ${BENCH[$i]} < ${INP[$i]} > /dev/null 2>&1
-
             perf stat -r $REP --field-separator=, -e LLC-store -e LLC-store-misses -e cycles -e instructions -o $out/${PRENAME[$j]}.store.txt -- taskset -c $CORE ${BENCH[$i]} < ${INP[$i]} > /dev/null 2>&1
         fi
     done
 
-    # Reset hardware prefetching
-    wrmsr -p $CORE 0x1a4 0x0 > /dev/null 2>&1
+    # Enable all hardware prefetchers
+    wrmsr -p $CORE 0x1a4 0 > /dev/null 2>&1
 
     echo "OK"
     cd $SOURCE
 done
+

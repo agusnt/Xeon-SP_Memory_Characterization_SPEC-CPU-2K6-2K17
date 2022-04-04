@@ -1,34 +1,34 @@
 # Scripts CPU2006
 
-This folder contains four scripts that take metrics of all CPU2006 benchmarks
+This directory contains five scripts that take metrics of all CPU2006 benchmarks
 (application + reference inputs).
 
-You should probably have to changes some variables. They are at the beginning of 
-each file and every variable comes with an small description.
+You should probably have to change some variables.
+They are initialized at the beginning of each file and come with a brief description.
 
 ## Requirements
 
+- GNU/Linux system
+- Intel processor with Intel Resource Directory Technology support
 - _msr-tool_ package
 - _intel-cmt-cat_ package
 - _perf_
-- An Intel processor
+
 
 ## Scripts
 
-- __Bandwidth__: measure the total access (read/write) to main memory.
-- __HW\_Prefetch__: measure misses/access to LLC and CPI with different
-  configuration of hardware prefetching.
-- __LLC\_size__: measure misses/access to LLC and CPI with different
-  sizes of LLC.
-- __Time__: measure misses/access to LLC and CPI every one million of
-  instructions. 
-- __L1Miss__: measure L1 misses.
+- __Bandwidth__: measures the main memory bandwidth consumption (read/write).
+- __HW\_Prefetch__: measures misses/accesses to LLC and CPI with different
+  hardware prefetching configurations.
+- __LLC\_size__: measures misses/accesses to LLC and CPI with differentf LLC sizes.
+- __Time__: measures misses/accesses to LLC and CPI every one million of instructions. 
+- __L1Miss__: measures L1 misses.
 
 ## Running
 
 To run any scripts just:
 * Change the initial vars with your proper values (e.g. folder where the 
-  SPEC CPU2006 where compiled)
+  SPEC CPU2006 were compiled)
 * Type:
 ```
 ./script_name.sh

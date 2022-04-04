@@ -17,9 +17,9 @@ This repository requires:
 * _msr-tool_ package
 * _Perf_ application
 * _intel-cmt-cat_ package
-* An Intel processor that supports Intel Resource Directory Technology
-* A GNU/Linux system
-* A C compiler
+* Intel processor that supports Intel Resource Directory Technology
+* GNU/Linux system
+* C compiler
 * SPEC CPU2006 and CPU2017 benchmark suites
 
 ## Folders

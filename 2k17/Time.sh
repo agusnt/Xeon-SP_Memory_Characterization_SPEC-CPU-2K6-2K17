@@ -1,16 +1,15 @@
 #!/bin/bash
 
 ################################################################################
-# This script run all SPEC CP2017 benchmarks with their reference inputs and 
-# make their MPKI3 and CPI evolution throughout their executions.
+# This script runs all SPEC CP2017 benchmarks with their reference inputs and 
+# obtains their MPKI3 and CPI evolution throughout their executions.
 #
 # You need the perf-tools package and msr-tools. This program is prepared to run 
 # on an Intel processor
 #
 # NOTE: This program must be run alone, otherwise it will give wrong measures.
 #
-# BE CAREFUL: This program reset Hardware Prefetching and Intel CAT 
-# configurations
+# BE CAREFUL: This program modifies hardware prefetching and Intel CAT configurations
 #
 # @Author: agusnt@unizar.es (http://webdiis.unizar.es/~/agusnt)
 ################################################################################
@@ -20,11 +19,11 @@
 ################################################################################
 SAMPLE="100000000"
 SOURCE=$(pwd)
-BIN="$SOURCE/bin" # Integer benchmarks
-RES="$SOURCE/result/2k17/" # Where save the result?
+BIN="$SOURCE/bin" # benchmark binaries
+RES="$SOURCE/result/2k17/" # results directory
 PERF="$HOME/bin/Perf++/main" # Pef++
-REP=1 # Number of repeat the measures
-CORE=0 # Core to pinned the application
+REP=1 # number of measurement repetitions
+CORE=0 # core to pin the application
 
 
 ################################################################################

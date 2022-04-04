@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ################################################################################
-# This script run all SPEC CP2006 benchmarks with their reference inputs and
-# get eight metrics about their execution with different sizes of LLC.
+# This script runs all SPEC CP2006 benchmarks with their reference inputs and
+# gets six metrics from their execution with different sizes of LLC.
 #  
-# The eight metrics are:
+# The six metrics are:
 # - LLC-load-misses
 # - LLC-load
 # - LLC-store-misses
@@ -15,8 +15,7 @@
 # You need the msr-tools and intel-cmt-cat package. This program is prepared to 
 # run on an Intel processor.
 #
-# BE CAREFUL: This program reset Hardware Prefetching and Intel RDT
-# configurations
+# BE CAREFUL: This program modifies the hardware prefetching and Intel RDT configurations
 #
 # @Author: agusnt@unizar.es (http://webdiis.unizar.es/~/agusnt)
 ################################################################################
@@ -26,9 +25,9 @@
 ################################################################################
 # Modify this to the benchmarks path
 SOURCE=$(pwd)
-BIN="$SOURCE/bin" # Integer benchmarks
-RES="$SOURCE/result/2k6/" # Where save the result?
-REP=1 # Number of repeat the proofs
+BIN="$SOURCE/bin" # benchmarks binaries
+RES="$SOURCE/result/2k6/" # results directory
+REP=1 # number of measurement repetitions
 
 ################################################################################
 # Benchmarks and inputs declarations
@@ -113,7 +112,7 @@ INP=(
 ################################################################################
 
 # Restrict LLC ways with Intel CAT (pqos)
-# You need to run it as administrator (you need intel-cmt-cat package)
+# You need to run it as administrator (intel-cmt-cat package required)
 pqos -e "llc:1=0x0001;llc:2=0x0003;llc:3=0x000f;llc:4=0x00ff" > /dev/null 2>&1
 pqos -a "llc:1=0" > /dev/null 2>&1
 
@@ -185,5 +184,5 @@ done
 
 # Reset ALL Intel CAT Mask and configurations
 pqos -R > /dev/null 2>&1
-# Enable all Hardware prefetchers
+# Enable all hardware prefetchers
 wrmsr -p $CORE 0x1a4 0x0 > /dev/null 2>&1

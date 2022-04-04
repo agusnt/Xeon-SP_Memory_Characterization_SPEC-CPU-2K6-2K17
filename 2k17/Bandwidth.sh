@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ################################################################################
-# This script run all SPEC CP2017 benchmarks with their reference inputs and 
-# measure their bandwidth consumption.
+# This script runs all SPEC CP2017 benchmarks with their reference inputs and 
+# measures their bandwidth consumption.
 #
 # You need the perf-tools package. This program is prepared to run on an Intel
 # Xeon Skylake-SP Gold 5120. If you have a different processor it is highly 
@@ -10,7 +10,7 @@
 #
 # NOTE: This program must be run alone, otherwise it will give wrong measures.
 #
-# BE CAREFUL: This program reset Hardware Prefetching.
+# BE CAREFUL: This program modifies the hardware prefetching configuration.
 #
 # @Author: agusnt@unizar.es (http://webdiis.unizar.es/~/agusnt)
 ################################################################################
@@ -19,10 +19,10 @@
 # Global variables, change them according to your workstation
 ################################################################################
 SOURCE=$(pwd) # Actual folder of execution
-BIN="$SOURCE/bin" # Integer benchmarks
-RES="$SOURCE/result/2k17" # Where save the result?
-REP=1 # Number of repeat the measures
-CORE=0 # Core to pinned the application
+BIN="$SOURCE/bin" # benchmarks binaries
+RES="$SOURCE/result/2k17" # results directory
+REP=1 # number of measurement repetitions
+CORE=0 # core to pin the application
 
 
 ################################################################################
@@ -141,7 +141,7 @@ do
         out="$RES/$i/Bandwidth/"
         mkdir -p $out
 
-        # Write MSR register to enable/disable the hardware prefetchers
+        # Write MSR register to change the hardware prefetchers configuration
         # This must be run as administrator (you need msr-tools package)
         wrmsr -p $CORE 0x1a4 $j > /dev/null 2>&1
 
@@ -155,7 +155,7 @@ do
         fi
     done
 
-    # Reset hardware prefetching
+    # Enable all hardware prefetchers
     wrmsr -p $CORE 0x1a4 0 > /dev/null 2>&1
 
     echo "OK"

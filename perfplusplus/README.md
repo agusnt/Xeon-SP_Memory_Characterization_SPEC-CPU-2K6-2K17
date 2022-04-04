@@ -5,14 +5,15 @@ every *x* samples of one of them.
 
 ## Prerequisites
 
-You should install in your GNU/Linux computer:
-* Linux Kernel >= 3.0
+* Intel processor with Intel Resource Directory Technology support
+* A GNU/Linux system with kernel >= 3.0
 * A C compiler
 * linux-tools
 
-## Installation
+## Compiling
 
-Download or clone the code and execute in your terminal:
+
+Compile the program by executing the following command:
 
 ```
 gcc -O3 main.c -o main
@@ -20,7 +21,7 @@ gcc -O3 main.c -o main
 
 ## How to use
 
-Execute the following command in your terminal:
+Execute the following command:
 ```
 ./main -n [number of events] -o [output file] -s [Sample] -c [Counters] [-r] -- Program args
 ```
@@ -29,19 +30,17 @@ Parameters:
 * **-n**: Number of events.
 * **-o**: Path for the output file.
 * **-s**: Number of samples
-* **-c**: Name of the counters to measure, the first counter also represent the
+* **-c**: Name of the counters to measure, the first counter also represents the
   interrupt counter associated with the **-s** parameter.
-* **-r**: Use raw counter, you can only use raw counters or O.S defined
-  counters.
+* **-r**: Use raw counter, you can only use raw counters or OS defined counters.
 * **Program args**: Command line of the program to be measure.
 
-The different counter that can be available to be measure can be seen with:
+The available counters can be obtained as follows:
 ```
 main -l
 ```
 
-**Note**: some of these counter may not available in your processor or can
-not be used together.
+**Note**: some of these counters may not be available in your processor or can not be used together.
 
 For more information, please type:
 
@@ -51,12 +50,12 @@ For more information, please type:
 
 ## Example
 
-To measure the number of Cycles every 1000 instructions of a program:
+To measure the number of cycles per 1000 instructions of a program:
 ```
 ./main -n 2 -c PERF_COUNT_HW_INSTRUCTIONS PERF_COUNT_HW_CPU_CYCLES -s 1000 -o test.txt -- ls 
 ```
 
-The output file, in these case test.txt:
+The output file, in this case test.txt, collects the instruction samples in the first column and the cycle samples in the second column:
 
 ```
 #PERF_COUNT_HW_INSTRUCTIONS #PERF_COUNT_HW_CPU_CYCLES 
@@ -97,3 +96,4 @@ The output file, in these case test.txt:
 35018 111565 
 35018 111565 
 ```
+

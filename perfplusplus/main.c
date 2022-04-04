@@ -620,7 +620,7 @@ void measure(int argc, char **argv, char (*event)[LEN], int size, int raw)
     sigprocmask(SIG_UNBLOCK, &sigmask, NULL);
 
     //TODO: improve signal and blocking between parent and child process in
-    //order to avoid use sleep (THIS DON'T GUARANTEE 100% THAT CHILDREN FINISH
+    //order to avoid use sleep (THIS DON'T GUARANTEE 100% THAT CHILDREN FINISHES
     //ITS SIGNAL COMUNICATION)
     sleep(1);
 
