@@ -35,5 +35,8 @@ This repository contains three folders:
 Each folder has his own _README.md_ that explains how to build (if it is 
 necessary) and run the scripts/application.
 
+## Notes
 
- 
+Most of the hardware counters used have a clearly identifiable alias. The only
+two hardware counters without alias are: `ef24` which refers to *Retired
+Instructions* and `08d1` which refers to *L1D Miss*.
