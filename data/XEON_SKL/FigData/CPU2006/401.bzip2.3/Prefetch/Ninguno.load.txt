@@ -1,0 +1,6 @@
+# started on Tue Nov 13 22:16:37 2018
+
+1705828142,,LLC-load,83830924133,100.00,,,,
+803368599,,LLC-load-misses,83830924133,100.00,47.10,of all LL-cache hits
+268096725106,,cycles,83830924133,100.00,,,,
+291399919665,,instructions,83830924133,100.00,1.09,insn per cycle

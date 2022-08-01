@@ -1,0 +1,9 @@
+# started on Tue Nov 20 23:01:17 2018
+
+1177411705,,uncore_imc_0/event=0x4,umask=0xC/,492720359451,100.00,,,,
+1177928370,,uncore_imc_1/event=0x4,umask=0xC/,492720339459,100.00,,,,
+1178341457,,uncore_imc_2/event=0x4,umask=0xC/,492720337922,100.00,,,,
+1177056900,,uncore_imc_3/event=0x4,umask=0xC/,492720336885,100.00,,,,
+1176398039,,uncore_imc_4/event=0x4,umask=0xC/,492720336121,100.00,,,,
+1177666247,,uncore_imc_5/event=0x4,umask=0xC/,492720335558,100.00,,,,
+1669664098606,,instructions,13796186835122,100.00,,,,

@@ -1,0 +1,16 @@
+# started on Tue Oct 16 20:34:48 2018
+
+S0,1,1726745,,uncore_imc_0/event=0x4,umask=0xC/,304905928427,100.00,,,,
+S0,1,1823122,,uncore_imc_1/event=0x4,umask=0xC/,304907142871,100.00,,,,
+S0,1,1649721,,uncore_imc_2/event=0x4,umask=0xC/,304907145740,100.00,,,,
+S0,1,1732646,,uncore_imc_3/event=0x4,umask=0xC/,304907160140,100.00,,,,
+S0,1,1740047,,uncore_imc_4/event=0x4,umask=0xC/,304907158551,100.00,,,,
+S0,1,1630250,,uncore_imc_5/event=0x4,umask=0xC/,304907157661,100.00,,,,
+S0,28,1276594602415,,instructions,8537401445895,100.00,,,,
+S1,1,46132429,,uncore_imc_0/event=0x4,umask=0xC/,304907142815,100.00,,,,
+S1,1,46175987,,uncore_imc_1/event=0x4,umask=0xC/,304907145283,100.00,,,,
+S1,1,46098955,,uncore_imc_2/event=0x4,umask=0xC/,304907147896,100.00,,,,
+S1,1,46030870,,uncore_imc_3/event=0x4,umask=0xC/,304907159216,100.00,,,,
+S1,1,45931662,,uncore_imc_4/event=0x4,umask=0xC/,304907158394,100.00,,,,
+S1,1,46006464,,uncore_imc_5/event=0x4,umask=0xC/,304907157183,100.00,,,,
+S1,28,352080020,,instructions,8537400975581,100.00,,,,

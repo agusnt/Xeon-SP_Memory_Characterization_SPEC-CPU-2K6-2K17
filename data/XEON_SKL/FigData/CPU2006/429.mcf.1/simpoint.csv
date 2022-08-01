@@ -1,0 +1,14 @@
+# Regions based on: /home/agusnt/bin/pinplay/extras/pinplay/scripts/regions.py -f 0 --csv_region --bbv_file t.bb --region_file t.simpoints --weight_file t.weights 
+# comment,thread-id,region-id,simulation-region-start-icount,simulation-region-end-icount,region-weight
+# Region = 1 Slice = 895 Icount = 268500003845 Length = 300000001 Weight = 0.25739
+cluster 0 from slice 895,0,1,268500003845,268800003845,0.25739
+
+# Region = 2 Slice = 668 Icount = 200400002929 Length = 300000004 Weight = 0.31744
+cluster 1 from slice 668,0,2,200400002929,200700002932,0.31744
+
+# Region = 3 Slice = 1009 Icount = 302700004231 Length = 300000004 Weight = 0.42517
+cluster 2 from slice 1009,0,3,302700004231,303000004234,0.42517
+
+# Total instructions in 3 regions = 900000009
+# Total instructions in workload = 314700004349
+# Total slices in workload = 1049

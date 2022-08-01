@@ -1,0 +1,6 @@
+# started on Wed Apr 25 22:29:03 2018
+
+499107427,,LLC-load,41835184260,100.00,,,,
+335139381,,LLC-load-misses,41835184260,100.00,67.15,of all LL-cache hits
+133796338552,,cycles,41835184260,100.00,,,,
+167995419098,,instructions,41835184260,100.00,1.26,insn per cycle
