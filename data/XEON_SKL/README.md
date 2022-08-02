@@ -49,3 +49,21 @@ them:
 - **Fig 7 and 8**: *Asoc* folder
 - **Fig 9 and 10**: *BW* folder
 - **Fig 11 and 12**: *Perf++/Prefetch* folder
+
+## Scripts
+
+The directory `Scripts` contains all the scripts needed to generate the
+figures.
+
+- `exec.sh`: parse all the data (*FigData* folder) and generate the graphs.
+- `Parse`: contains all the scripts to parse de data.
+- `Plot`: contains all the scripts to generate the graphs.
+
+After the execution a folder called *Processsed* appears. This folder contains
+two directories (*CPU2006* and *CPU2017Rate*) and seven `csv` files which
+summarize the data. The two directories contains one folder by every memory
+intensive benchmark, with the data and the plots.
+
+### Requirements
+
+You will need `python3` to parse the files and `gnuplot` to generate the graphs.
