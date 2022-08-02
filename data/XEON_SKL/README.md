@@ -4,6 +4,18 @@ This directory stores the data to reproduce figures 2 to 12.
 
 ## Data
 
+The results of this directory correspond to the characterization of a system
+with the following characteristics:
+
+| Processor   | Intel Xeon Gold 5120 (Skylake-SP)  |
+|-------------|------------------------------------|
+| Main Memory | 96 GiB DDR4                        |
+| L1 I-Cache  | 32 KiB, 64 B line size, 8 ways     |
+| L1 D-Cache  | 32 KiB, 64 B line size, 8 ways     |
+| L2          | 1 MiB, 64 B line size, 8 ways      |
+| LLC         | 19.25 MiB, 64 B line size, 11 ways |
+| OS          | CentOS 7; kernel: 3.10             |
+
 ### Summary
 
 The following `csv` files summarize the data information:
