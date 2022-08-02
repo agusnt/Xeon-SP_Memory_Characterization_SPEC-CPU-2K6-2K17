@@ -121,6 +121,8 @@ do
     out="$RES/$i/L1Miss/"
     mkdir -p $out
 
+    # Event ef24 (Event Code: 24, Mask: EF) -> Retired Instructions
+    # Event 08d1 (Event Code: D1, Mask: 08) -> L1D Misses
     if [ -z ${INP[$i]} ]; then
         perf stat -r $REP --field-separator=, -e ref24 -e r08d1 -e cycles -e instructions -o $out/l1.txt -- taskset -c $CORE ${BENCH[$i]} > /dev/null 2>&1 
     else        
