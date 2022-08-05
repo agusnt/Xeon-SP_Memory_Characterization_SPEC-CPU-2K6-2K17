@@ -29,7 +29,7 @@ This repository contains three folders:
 * **2k17**: scripts to execute and characterize the CPU2017 benchmarks.
 * **perfplusplus**: a C program which allows to read the hardware performance 
   counters every *x* samples of one of them
-* **data**: data to reproduce the figures.
+* **figure_data**: data to reproduce the figures.
 
 ## Building and Running
 
