@@ -22,13 +22,14 @@ This repository requires:
 * C compiler
 * SPEC CPU2006 and CPU2017 benchmark suites
 
-## Folders
+## Directories
 
 This repository contains three folders:
 * **2k6**: scripts to execute and characterize the CPU2006 benchmarks.
 * **2k17**: scripts to execute and characterize the CPU2017 benchmarks.
 * **perfplusplus**: a C program which allows to read the hardware performance 
   counters every *x* samples of one of them
+* **data**: data to reproduce the figures.
 
 ## Building and Running
 
