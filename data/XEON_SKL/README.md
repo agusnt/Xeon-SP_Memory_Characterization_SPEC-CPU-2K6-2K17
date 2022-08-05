@@ -62,6 +62,8 @@ them:
 - **Fig 9 and 10**: *BW* folder
 - **Fig 11 and 12**: *Perf++/Prefetch* folder
 
+The data for figures **5** and **10** are in folder `CSVFigData`.
+
 ## Scripts
 
 The directory `Scripts` contains all the scripts needed to generate the
