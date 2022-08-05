@@ -12,7 +12,7 @@ python3 Parse/time.py ../FigData ./Processed > /dev/null 2>&1
 Parse/time_bw.sh ../FigData ./Processed > /dev/null 2>&1
 Parse/time_bw_second.sh ../FigData ./Processed  > /dev/null 2>&1
 Parse/simpoint.sh ../FigData ./Processed > /dev/null 2>&1
-Parse/Prefetch.sh Data Processed/ > /dev/null 2>&1
+Parse/Prefetch.sh ../FigData ./Processed/ > /dev/null 2>&1
 Parse/barrido_prefetch_all.sh ../FigData Processed > /dev/null 2>&1
 Parse/barrido_prefetch_2017.sh ../FigData Processed
 
