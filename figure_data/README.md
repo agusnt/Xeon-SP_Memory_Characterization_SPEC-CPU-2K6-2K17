@@ -1,6 +1,6 @@
 # Figure Data
 
-This directory contains the `csv` files needed to generate graphs 2 to 11.
+This directory contains the `csv` files needed to generate graphs from 2 to 11.
 
 `raw` directory have the raw data without parsing.
 
